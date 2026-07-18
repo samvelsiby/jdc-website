@@ -9,7 +9,7 @@ import { SunDoodle, HeartDoodle, StarDoodle, SmileyDoodle, ArrowDoodle, CurlyArr
 import { MAIN_FOUR, ACADEMICS } from "@/data/categories";
 import { CHARITIES } from "@/data/charities";
 import { CAPTAIN } from "@/data/execs";
-import { APPLY_FORM_URL, CORPORATE_EMAIL, INSTAGRAM_URL } from "@/data/links";
+import { APPLY_FORM_URL, APPLICATION_DEADLINE, CORPORATE_EMAIL, INSTAGRAM_URL } from "@/data/links";
 
 export default function Home() {
   return (
@@ -208,9 +208,12 @@ export default function Home() {
               <a className="btn btn--gold mt-6" href={APPLY_FORM_URL} target="_blank" rel="noopener" data-paste="">
                 Apply to JDC West
               </a>
+              <p className="hand text-xl mt-4 !text-[var(--yellow)]" data-paste="">
+                applications close {APPLICATION_DEADLINE} — don’t sleep on it
+              </p>
             </div>
             <div className="justify-self-center" data-sticker="">
-              <Starburst size={160}>It’s your year!</Starburst>
+              <Starburst size={160}>Due {APPLICATION_DEADLINE}!</Starburst>
             </div>
           </div>
 

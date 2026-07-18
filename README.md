@@ -185,7 +185,7 @@ The real deadline is not the competition — it's the **delegate application dea
 - **Sponsor list, tiers, contract terms, and logo files** — contractual, and the scrapbook system has no component for third-party logos. See the Sponsor Logos section and [DESIGN.md §9](DESIGN.md#9-applying-this-to-the-site).
 - **Profile card content for 12 execs** — the design's repeating unit needs a photo, a degree, and a quote from each person. Twelve quotes is a real collection job.
 - **The 14 category names** — the Main 4 and the 10 academic categories are still unnamed here. Blocks building `/teams`.
-- **Application deadline date** — the hero is built around showing it
+- ~~Application deadline date~~ — **August 1st**, now shown in the hero and apply section
 - Competition year and host school
 - Final Google Form URLs — delegate application and charity sign-up
 - **Names of the other 5 charity partners** — all 6 are signed, only Manitoba Harvest is named here
