@@ -5,32 +5,19 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { CAPTAIN, EXECS, HEADCOUNT, initials as nameInitials, Exec } from "@/data/execs";
-import { APPLY_FORM_URL } from "@/data/links";
+import { CAPTAIN, EXECS, HEADCOUNT, initials as nameInitials } from "@/data/execs";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-type CardData = Exec & { cta?: boolean };
-
-// Roster is the Captain + every exec, plus one recruiting card at the end —
-// an empty slot with the visitor's name on it. Trios cycle through in
-// groups of 3; the last group just has whatever's left over.
-const ROSTER: CardData[] = [
-  CAPTAIN,
-  ...EXECS,
-  {
-    names: ["You?"],
-    role: "Future delegate",
-    degree: "any UWinnipeg student",
-    quote: "this spot’s empty. fix that.",
-    cta: true,
-  },
-];
+// Roster is the Captain + every exec — HEADCOUNT tracks this exactly, so
+// the "keep scrolling" note below never drifts out of sync. Trios cycle
+// through in groups of 3; with 12 people that's four even groups.
+const ROSTER = [CAPTAIN, ...EXECS];
 
 const SLOTS = 3;
 const GROUPS = Math.ceil(ROSTER.length / SLOTS);
 
-const bigInitial = (e: CardData) => (e.cta ? "?" : e.names.map((n) => n[0]).join("+"));
+const bigInitial = (e: (typeof ROSTER)[number]) => e.names.map((n) => n[0]).join("+");
 const photoVariant = (i: number) =>
   i % 3 === 1 ? "polaroid-img--sunset" : i % 3 === 2 ? "polaroid-img--paper" : "";
 
@@ -201,21 +188,13 @@ export default function ExecShowcase() {
                       ))}
                     </div>
                   ) : (
-                    <span className="polaroid-initials">
-                      {e.cta ? "?" : e.names.map(nameInitials).join(" + ")}
-                    </span>
+                    <span className="polaroid-initials">{e.names.map(nameInitials).join(" + ")}</span>
                   )}
                 </div>
 
                 <blockquote className="sticker show-quote">
                   <p className="hand">“{e.quote}”</p>
                 </blockquote>
-
-                {e.cta && (
-                  <a className="btn btn--gold mt-1" href={APPLY_FORM_URL} target="_blank" rel="noopener">
-                    Apply now
-                  </a>
-                )}
               </article>
             ) : null
           )}

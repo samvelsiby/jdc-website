@@ -79,7 +79,7 @@ export default function Hero() {
           </h1>
 
           <p className="hero-sub mt-5 max-w-[44ch]">
-            Western Canada’s biggest business school competition — and the UWinnipeg
+            Western Canada’s biggest business school competition, and the UWinnipeg
             delegation that’s going to it. Fourteen categories, one team, one January
             weekend you’ll never shut up about.
           </p>

@@ -613,6 +613,19 @@ main {
   overflow: clip;
 }
 
+/* Phones: text + photo stacked in one column is taller than one screen —
+   locking to a fixed height and clipping overflow was cutting the photo
+   off. Let the section grow to fit its content instead; it still opens
+   at a full screen tall via min-height, it just isn't forced to stop there. */
+@media (max-width: 767px) {
+  .hero-ed {
+    height: auto;
+    min-height: 100svh;
+    padding-bottom: 3rem;
+    overflow: visible;
+  }
+}
+
 .ed-headline {
   font-weight: 800;
   font-size: clamp(1.35rem, 2.3vw + 1svh, 3rem);
