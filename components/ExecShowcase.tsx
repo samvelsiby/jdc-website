@@ -5,15 +5,16 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { CAPTAIN, EXECS, initials as nameInitials, Exec } from "@/data/execs";
+import { CAPTAIN, EXECS, HEADCOUNT, initials as nameInitials, Exec } from "@/data/execs";
 import { APPLY_FORM_URL } from "@/data/links";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 type CardData = Exec & { cta?: boolean };
 
-// 11 exec cards + the recruiting card = 12 = four clean trios,
-// and the sequence ends on an empty spot with the visitor's name on it.
+// Roster is the Captain + every exec, plus one recruiting card at the end —
+// an empty slot with the visitor's name on it. Trios cycle through in
+// groups of 3; the last group just has whatever's left over.
 const ROSTER: CardData[] = [
   CAPTAIN,
   ...EXECS,
@@ -198,7 +199,7 @@ export default function ExecShowcase() {
       ))}
 
       <p className="show-scroll-note hand" aria-hidden="true">
-        keep scrolling — there’s 12 of us ↓
+        keep scrolling — there’s {HEADCOUNT} of us ↓
       </p>
     </section>
   );

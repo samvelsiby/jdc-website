@@ -152,7 +152,7 @@ Executive team page. The **Captain is the main feature** — picture and bio at 
 | Chetan Veer Singh | VP Academics, External |
 | Harleen Deol | VP Athletics and Challenge |
 
-12 people total: 1 Captain (featured) + 11 in the table. Marketing is a co-VP pair, so the table needs to handle two people sharing a role without looking like a mistake.
+12 people total: 1 Captain (featured) + 11 in the showcase. Arun and Raezel are Co-VP Marketing — same title, two separate cards, so each gets their own photo rather than splitting one card in half.
 
 This roster is the site's primary data file — see Content Model above. When the exec team turns over, this is the edit.
 

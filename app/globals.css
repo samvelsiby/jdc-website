@@ -943,16 +943,19 @@ main {
   font-size: 1rem;
 }
 
-/* Small screens OR reduced motion: no pin, no letters — the cards reflow
-   into a single stacked list in roster order (`order` is set inline). */
+/* Small screens OR reduced motion: no pin, no scrub — the roster reflows
+   into a single stacked list (`order` is set inline). No pin also means no
+   card chrome: the photo carries the card, big and mostly uncropped, with
+   just a pill + name underneath. Degree and quote are dropped here — they
+   read fine in a hover-scale desktop card, not in a plain mobile stack. */
 @media (max-width: 999px), (prefers-reduced-motion: reduce) {
   .exec-show {
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2.5rem;
-    padding: 1.5rem;
+    gap: 2.75rem;
+    padding: 1.5rem 1.25rem;
   }
   .show-member {
     display: contents;
@@ -967,6 +970,34 @@ main {
     inset: auto;
     width: 100%;
     max-width: 420px;
+    background: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    gap: 0.9rem;
+  }
+  .show-pcard .hand.text-lg,
+  .show-quote {
+    display: none;
+  }
+  .show-photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    border-radius: 20px;
+    box-shadow: 0 12px 26px rgba(25, 25, 25, 0.22);
+  }
+  .show-photo .tape {
+    width: 110px;
+    height: 32px;
+    top: -14px;
+  }
+  .show-pcard .pill {
+    font-size: 1.3rem;
+  }
+  .show-name {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
   }
 }
 

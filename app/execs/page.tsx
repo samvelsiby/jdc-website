@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import Fx from "@/components/Fx";
 import ExecShowcase from "@/components/ExecShowcase";
 import { HeartDoodle, ArrowDoodle, StarDoodle } from "@/components/Doodles";
+import { HEADCOUNT } from "@/data/execs";
 
 export const metadata: Metadata = {
   title: "Meet the Execs — Team Winnie",
-  description: "The 12 people building UWinnipeg's 26/27 JDC West delegation, led by Captain Thiksha Sathish Kumar.",
+  description: `The ${HEADCOUNT} people building UWinnipeg's 26/27 JDC West delegation, led by Captain Thiksha Sathish Kumar.`,
 };
 
 export default function ExecsPage() {
@@ -24,7 +25,7 @@ export default function ExecsPage() {
             the faces behind the polaroids
           </h1>
           <p className="hand text-2xl mt-6" style={{ color: "var(--purple-deep)" }} data-paste="">
-            all 12 of us, one at a time — keep scrolling ↓
+            all {HEADCOUNT} of us, one at a time — keep scrolling ↓
           </p>
         </div>
       </section>

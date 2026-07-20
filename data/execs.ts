@@ -52,11 +52,18 @@ export const EXECS: Exec[] = [
     photos: ["/images/execs/rishi-j-koriya.jpg"],
   },
   {
-    names: ["Arun Muthu", "Raezel Florence Balino"],
+    names: ["Arun Muthu"],
     role: "Co-VP Marketing",
-    degree: "Degrees TBD",
-    quote: "Two people, one pill. Quotes pending.",
-    photos: ["/images/execs/arun-muthu.jpg", "/images/execs/raezel-florence-balino.jpg"],
+    degree: "Degree TBD",
+    quote: "Quote pending — brainstorming the tagline.",
+    photos: ["/images/execs/arun-muthu.jpg"],
+  },
+  {
+    names: ["Raezel Florence Balino"],
+    role: "Co-VP Marketing",
+    degree: "Degree TBD",
+    quote: "Quote pending — check back soon.",
+    photos: ["/images/execs/raezel-florence-balino.jpg"],
   },
   {
     names: ["Ronal Daison"],
@@ -94,6 +101,10 @@ export const EXECS: Exec[] = [
     // No photo yet — falls back to initials on a gradient.
   },
 ];
+
+// Real headcount: Captain + every exec, each with their own card —
+// including Arun and Raezel, who used to share one Co-VP card.
+export const HEADCOUNT = 1 + EXECS.length;
 
 export function initials(name: string) {
   return name
