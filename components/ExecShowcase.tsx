@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -158,11 +159,27 @@ export default function ExecShowcase() {
                   ({e.degree})
                 </p>
 
-                <div className={`show-photo polaroid-img ${photoVariant(i)}`}>
+                <div className={`show-photo polaroid-img ${photoVariant(i)} ${e.photos?.length ? "show-photo--filled" : ""}`}>
                   <span className="tape tape--top" />
-                  <span className="polaroid-initials">
-                    {e.cta ? "?" : e.names.map(nameInitials).join(" + ")}
-                  </span>
+                  {e.photos?.length ? (
+                    <div className={`show-photo-grid ${e.photos.length > 1 ? "show-photo-grid--split" : ""}`}>
+                      {e.photos.map((src, p) => (
+                        <div key={src} className="show-photo-cell">
+                          <Image
+                            src={src}
+                            alt={e.names[p] ?? e.names[0]}
+                            fill
+                            sizes="(min-width: 1000px) 20vw, 78vw"
+                            style={{ objectFit: "cover" }}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <span className="polaroid-initials">
+                      {e.cta ? "?" : e.names.map(nameInitials).join(" + ")}
+                    </span>
+                  )}
                 </div>
 
                 <blockquote className="sticker show-quote">

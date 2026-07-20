@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ReactNode } from "react";
 
 type PolaroidProps = {
@@ -6,7 +7,10 @@ type PolaroidProps = {
   tape?: "top" | "corners";
   variant?: "purple" | "sunset" | "paper";
   className?: string;
-  children?: ReactNode; // placeholder art until real photos land
+  src?: string; // real photo — takes over from the gradient placeholder
+  alt?: string; // required alt text when `src` is set
+  priority?: boolean; // pass through for above-the-fold photos
+  children?: ReactNode; // placeholder art (initials on a gradient) when no `src`
   "data-polaroid"?: string;
   "data-speed"?: string;
 };
@@ -17,6 +21,9 @@ export default function Polaroid({
   tape = "top",
   variant = "purple",
   className = "",
+  src,
+  alt = "",
+  priority = false,
   children,
   ...rest
 }: PolaroidProps) {
@@ -37,7 +44,20 @@ export default function Polaroid({
           <span className="tape tape--tr" />
         </>
       )}
-      <div className={imgClass}>{children}</div>
+      <div className={imgClass}>
+        {src ? (
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            sizes="(min-width: 768px) 33vw, 90vw"
+            style={{ objectFit: "cover" }}
+            priority={priority}
+          />
+        ) : (
+          children
+        )}
+      </div>
       <figcaption className="polaroid-caption">{caption}</figcaption>
     </figure>
   );

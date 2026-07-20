@@ -665,6 +665,7 @@ main {
   display: grid;
   place-items: center;
   rotate: var(--rotate-b);
+  overflow: hidden;
   will-change: transform;
 }
 
@@ -901,6 +902,7 @@ main {
   aspect-ratio: 1 / 1;
   width: auto;
   border-radius: 10px;
+  overflow: hidden;
 }
 .show-photo .polaroid-initials {
   font-size: 2.2rem;
@@ -909,6 +911,20 @@ main {
   width: 84px;
   height: 24px;
   top: -10px;
+  z-index: 2;
+}
+
+.show-photo-grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+}
+.show-photo-grid--split {
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+.show-photo-cell {
+  position: relative;
 }
 
 .show-name {

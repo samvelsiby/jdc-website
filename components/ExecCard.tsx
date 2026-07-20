@@ -28,11 +28,13 @@ export default function ExecCard({ exec, index = 0 }: { exec: Exec; index?: numb
       </p>
 
       <Polaroid
-        caption={`${exec.names.map((n) => n.split(" ")[0]).join(" & ")} — photo soon!`}
+        caption={exec.names.map((n) => n.split(" ")[0]).join(" & ")}
         rotate={rotate}
         tape={index % 2 ? "corners" : "top"}
         variant={index % 3 === 1 ? "sunset" : index % 3 === 2 ? "paper" : "purple"}
         className="w-full max-w-[300px]"
+        src={exec.photos?.[0]}
+        alt={exec.names[0]}
         data-polaroid=""
       >
         <span className="polaroid-initials">{exec.names.map(initials).join(" + ")}</span>

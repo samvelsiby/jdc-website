@@ -9,6 +9,7 @@ import { SunDoodle, HeartDoodle, StarDoodle, SmileyDoodle, ArrowDoodle, CurlyArr
 import { MAIN_FOUR, ACADEMICS } from "@/data/categories";
 import { CHARITIES } from "@/data/charities";
 import { CAPTAIN } from "@/data/execs";
+import { CHARITY_PHOTOS, COMPETITION_PHOTOS } from "@/data/gallery";
 import { APPLY_FORM_URL, APPLICATION_DEADLINE, CORPORATE_EMAIL, INSTAGRAM_URL } from "@/data/links";
 
 export default function Home() {
@@ -271,7 +272,16 @@ export default function Home() {
       {/* ---------- Meet the Cap ---------- */}
       <section className="section" aria-labelledby="cap">
         <div className="wrap grid gap-10 md:grid-cols-[auto_1fr] items-center">
-          <Polaroid caption="Thiksha — photo soon!" rotate="b" tape="corners" variant="sunset" className="w-[260px]" data-polaroid="">
+          <Polaroid
+            caption="Thiksha, Captain"
+            rotate="b"
+            tape="corners"
+            variant="sunset"
+            className="w-[260px]"
+            src={CAPTAIN.photos?.[0]}
+            alt="Thiksha Sathish Kumar"
+            data-polaroid=""
+          >
             <span className="polaroid-initials">TS</span>
           </Polaroid>
           <div className="relative">
@@ -303,28 +313,28 @@ export default function Home() {
             Photo gallery
           </h2>
           <p className="hand text-2xl mt-4" style={{ color: "var(--purple-deep)" }} data-paste="">
-            the scrapbook fills up as the year happens — check back after our first event!
+            the scrapbook fills up as the year happens — this is just the start
           </p>
 
           <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12">
             {[
-              { c: "first practice", v: "purple" },
-              { c: "fundraiser night", v: "sunset" },
-              { c: "case grind o’clock", v: "paper" },
-              { c: "team socials", v: "sunset" },
-              { c: "the road to January", v: "purple" },
-              { c: "your face here?", v: "paper" },
+              { c: "on the competition floor", src: COMPETITION_PHOTOS[0].src },
+              { c: "charity cricket tournament", src: CHARITY_PHOTOS[0].src },
+              { c: "game day energy", src: COMPETITION_PHOTOS[3].src },
+              { c: "for a good cause", src: CHARITY_PHOTOS[5].src },
+              { c: "JDC West 26/27", src: COMPETITION_PHOTOS[5].src },
+              { c: "team spirit, on and off the field", src: CHARITY_PHOTOS[10].src },
             ].map((p, i) => (
               <Polaroid
                 key={p.c}
                 caption={p.c}
                 rotate={(["a", "b", "c"] as const)[i % 3]}
                 tape={i % 2 ? "corners" : "top"}
-                variant={p.v as "purple" | "sunset" | "paper"}
+                variant={(["purple", "sunset", "paper"] as const)[i % 3]}
+                src={p.src}
+                alt={p.c}
                 data-polaroid=""
-              >
-                <span className="polaroid-initials">📸</span>
-              </Polaroid>
+              />
             ))}
           </div>
         </div>

@@ -70,6 +70,25 @@ This is a deliberate trade: it costs an exec a pull request instead of a login, 
 
 Every form is an **external Google Form** — delegate applications and the charity sign-up both link out. The site has no backend and no form handling of its own.
 
+## Images
+
+Real photos live in `public/images/`, all served through `next/image`:
+
+```
+public/images/
+  execs/                    one headshot per person, kebab-case matching their name
+    thiksha-sathish-kumar.jpg
+    arun-muthu.jpg           (co-VP roles get one file per person, not per role)
+    ...
+  gallery/
+    charity/                 charity-01.jpg ... charity-19.jpg
+    competition/              comp-01.jpg ... comp-07.jpg
+```
+
+Exec photos are wired through `data/execs.ts` — each `Exec` has an optional `photos: string[]` (aligned index-for-index with `names`, so co-VP cards can hold two). Leave it unset and the person falls back to initials on a gradient, same as before any photo exists — that's how Harleen Deol renders today. Gallery photos are listed in `data/gallery.ts` (`CHARITY_PHOTOS`, `COMPETITION_PHOTOS`) and pulled into the homepage gallery, the `/charity` events section, and the hero collage.
+
+**Source files never go into the repo.** Raw camera exports (HEIC, 15–20MB JPEGs) are converted to web-sized JPEGs (`sips`, max dimension 900px for headshots / 1600px for gallery shots, ~80% quality) before they're added — a single HEIC file is bigger than this entire site's JS bundle. The unconverted originals for this batch live in a sibling folder, `../JDC-website-raw-photos/`, outside the project and outside git. When new photos come in, convert first, then add only the output to `public/images/`.
+
 ## Routes
 
 Routes sit at the domain root.

@@ -3,8 +3,10 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import Image from "next/image";
 import { ButterflyDoodle, StarDoodle, HeartDoodle, SquiggleDoodle } from "@/components/Doodles";
 import { APPLY_FORM_URL, APPLICATION_DEADLINE } from "@/data/links";
+import { COMPETITION_PHOTOS } from "@/data/gallery";
 
 gsap.registerPlugin(useGSAP);
 
@@ -103,7 +105,14 @@ export default function Hero() {
           <ButterflyDoodle className="hero-wings" size={Math.min(460, 460)} data-drift="14" />
 
           <div className="cutout hero-photo" data-drift="8">
-            <span className="polaroid-initials">TW</span>
+            <Image
+              src={COMPETITION_PHOTOS[2].src}
+              alt="Team Winnie at JDC West"
+              fill
+              sizes="(min-width: 768px) 30vw, 60vw"
+              style={{ objectFit: "cover" }}
+              priority
+            />
           </div>
 
           <div className="note-card hero-note left-0 bottom-2" data-drift="24">

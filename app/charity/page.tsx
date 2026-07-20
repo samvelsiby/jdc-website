@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Fx from "@/components/Fx";
 import Starburst from "@/components/Starburst";
+import Polaroid from "@/components/Polaroid";
 import { HeartDoodle, SunDoodle } from "@/components/Doodles";
 import { CHARITIES } from "@/data/charities";
+import { CHARITY_PHOTOS } from "@/data/gallery";
 import { CHARITY_FORM_URL, CORPORATE_EMAIL } from "@/data/links";
 
 export const metadata: Metadata = {
@@ -87,27 +89,57 @@ export default function CharityPage() {
 
       {/* Events */}
       <section className="slide-purple tx-halftone tx-halftone--light section" aria-labelledby="events">
-        <div className="wrap">
-          <h2 id="events" style={{ fontFamily: "var(--font-marker)" }} className="text-4xl md:text-5xl uppercase" data-paste="">
-            Charity events
-          </h2>
-          <p className="mt-4 max-w-[52ch] opacity-95" data-paste="">
-            {/* TODO: real event details from VP Charity */}
-            Fundraisers, volunteer days, and one big signature event are in the works
-            for the fall semester. Details land here (and on our Instagram) as soon
-            as dates are locked.
-          </p>
-          <div className="mt-8 max-w-[560px]">
-            <div className="faq-card !static" data-paste="">
-              <h3 className="sans-heading">Want first dibs?</h3>
-              <p className="mt-2">
-                Charities on our partner list get events co-planned with them, not
-                announced to them. Sign up and our VP Charity will reach out.
-              </p>
-              <a className="btn btn--gold mt-4" href={CHARITY_FORM_URL} target="_blank" rel="noopener">
-                Charity sign-up form
-              </a>
+        <div className="wrap grid gap-10 md:grid-cols-[1fr_.85fr] items-start">
+          <div>
+            <h2 id="events" style={{ fontFamily: "var(--font-marker)" }} className="text-4xl md:text-5xl uppercase" data-paste="">
+              Charity events
+            </h2>
+            <p className="mt-4 max-w-[52ch] opacity-95" data-paste="">
+              Our charity cricket tournament kicked off the year — fundraisers,
+              volunteer days, and one big signature event follow through the fall.
+              Details land here (and on our Instagram) as soon as dates are locked.
+            </p>
+            <div className="mt-8 max-w-[560px]">
+              <div className="faq-card !static" data-paste="">
+                <h3 className="sans-heading">Want first dibs?</h3>
+                <p className="mt-2">
+                  Charities on our partner list get events co-planned with them, not
+                  announced to them. Sign up and our VP Charity will reach out.
+                </p>
+                <a className="btn btn--gold mt-4" href={CHARITY_FORM_URL} target="_blank" rel="noopener">
+                  Charity sign-up form
+                </a>
+              </div>
             </div>
+          </div>
+
+          <div className="relative min-h-[280px] hidden sm:block" aria-hidden="true">
+            <Polaroid
+              caption="charity cricket tournament"
+              rotate="a"
+              tape="corners"
+              className="absolute top-0 left-2 w-[190px]"
+              src={CHARITY_PHOTOS[3].src}
+              alt="Delegates at the charity cricket tournament"
+              data-polaroid=""
+            />
+            <Polaroid
+              caption="game on"
+              rotate="c"
+              className="absolute top-16 right-0 w-[170px]"
+              src={CHARITY_PHOTOS[8].src}
+              alt="Charity cricket tournament in play"
+              data-polaroid=""
+            />
+            <Polaroid
+              caption="for the cause"
+              rotate="b"
+              tape="corners"
+              className="absolute bottom-0 left-16 w-[180px]"
+              src={CHARITY_PHOTOS[14].src}
+              alt="Team Winnie delegates at the charity event"
+              data-polaroid=""
+            />
           </div>
         </div>
       </section>
