@@ -646,6 +646,26 @@ main {
   }
 }
 
+/* Phones: the full collage (wings + photo + note + stamp + doodles) has no
+   room to breathe in a box this narrow — stacked on top of each other it
+   reads as clutter, not a scrapbook. Keep only the photo: bigger, clean,
+   framed. Everything else is a desktop flourish. */
+@media (max-width: 767px) {
+  .hero-collage {
+    height: min(78vw, 340px);
+  }
+  .hero-wings,
+  .note-card,
+  .stamp,
+  .hero-collage .hero-doodle {
+    display: none;
+  }
+  .cutout {
+    width: min(64vw, 260px);
+    border-width: 8px;
+  }
+}
+
 .hero-wings {
   width: min(86vw, 62svh, 460px);
   height: auto;
@@ -986,6 +1006,7 @@ main {
     height: auto;
     aspect-ratio: 4 / 5;
     border-radius: 20px;
+    border: 4px solid var(--ink);
     box-shadow: 0 12px 26px rgba(25, 25, 25, 0.22);
   }
   .show-photo .tape {
