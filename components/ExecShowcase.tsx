@@ -41,8 +41,11 @@ const photoVariant = (i: number) =>
  * hold, then the trio slides off-left as the next trio arrives. Giant
  * stroked initials swap in each slot per group. Fully scrubbed.
  *
- * Mobile & reduced-motion: no pin — cards become a plain stacked list in
- * roster order (CSS `display: contents` + `order` handles the reflow).
+ * Mobile: no pin (there's no room for it) — instead each card gets its own
+ * scroll-triggered paste-in as it enters the viewport: the whole card drops
+ * in with a settling rotation, then its pill, photo, and quote stamp on in
+ * a quick sequence. Plays once per card. Reduced-motion (any width) skips
+ * all of it and the cards render in their resting position.
  */
 export default function ExecShowcase() {
   const scope = useRef<HTMLElement>(null);
@@ -108,6 +111,26 @@ export default function ExecShowcase() {
           });
         }
       });
+
+      // Mobile paste-in — each card triggers independently as it scrolls
+      // into view, so order across the three underlying slot-columns
+      // doesn't matter here (unlike the pin above).
+      mm.add("(max-width: 999px) and (prefers-reduced-motion: no-preference)", () => {
+        const sec = scope.current;
+        if (!sec) return;
+
+        gsap.utils.toArray<HTMLElement>(".show-pcard", sec).forEach((card) => {
+          const dir = Number(card.dataset.index) % 2 === 0 ? -1 : 1;
+          const tl = gsap.timeline({
+            scrollTrigger: { trigger: card, start: "top 85%", once: true },
+            defaults: { ease: "back.out(1.5)" },
+          });
+          tl.from(card, { y: 70, opacity: 0, rotation: dir * 7, scale: 0.92, duration: 0.65 })
+            .from(card.querySelector(".pill"), { scale: 0, rotation: -10, ease: "back.out(2)", duration: 0.4 }, "-=.35")
+            .from(card.querySelector(".show-photo"), { y: 36, opacity: 0, rotation: dir * -6, duration: 0.5 }, "-=.3")
+            .from(card.querySelector(".show-quote"), { scale: 0.7, opacity: 0, duration: 0.4 }, "-=.2");
+        });
+      });
     },
     { scope }
   );
@@ -141,6 +164,7 @@ export default function ExecShowcase() {
                 className="show-pcard"
                 data-group={Math.floor(i / SLOTS)}
                 data-slot={s}
+                data-index={i}
                 style={{ zIndex: Math.floor(i / SLOTS) + 1, order: i }}
               >
                 <span className="pill">

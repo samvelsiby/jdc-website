@@ -858,8 +858,8 @@ main {
 .show-member {
   position: relative;
   flex: 1 1 0;
-  max-width: 330px;
-  height: min(72svh, 580px);
+  max-width: 380px;
+  height: min(78svh, 640px);
   border: 2.5px dashed rgba(25, 25, 25, 0.4);
   border-radius: 1.5rem;
   will-change: transform;
@@ -918,7 +918,7 @@ main {
 
 .show-photo {
   position: relative;
-  height: min(19vh, 160px);
+  height: min(30vh, 260px);
   aspect-ratio: 1 / 1;
   width: auto;
   border-radius: 10px;
