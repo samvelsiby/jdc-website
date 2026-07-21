@@ -193,7 +193,7 @@ export default function ExecShowcase() {
                 </div>
 
                 <blockquote className="sticker show-quote">
-                  <p className="hand">“{e.quote}”</p>
+                  <p className="hand">{e.blurb}</p>
                 </blockquote>
               </article>
             ) : null

@@ -10,7 +10,7 @@ import { CHARITY_FORM_URL, CORPORATE_EMAIL } from "@/data/links";
 export const metadata: Metadata = {
   title: "Charity Partners — Team Winnie",
   description:
-    "Team Winnie partners with six Winnipeg charities as part of JDC West's charity challenge — starting with Manitoba Harvest.",
+    "Team Winnie partners with six Winnipeg charities as part of JDC West's charity challenge: Agape Table, Darcy's ARC, The Salvation Army, Children's Hospital Foundation, Maddox Warriors, and the Winnipeg Goldeyes.",
 };
 
 export default function CharityPage() {

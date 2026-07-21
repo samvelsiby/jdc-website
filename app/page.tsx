@@ -6,11 +6,19 @@ import Polaroid from "@/components/Polaroid";
 import Starburst from "@/components/Starburst";
 import FaqStack from "@/components/FaqStack";
 import { SunDoodle, HeartDoodle, StarDoodle, SmileyDoodle, ArrowDoodle, CurlyArrowDoodle } from "@/components/Doodles";
-import { MAIN_FOUR, ACADEMICS } from "@/data/categories";
+import { CATEGORIES } from "@/data/categories";
 import { CHARITIES } from "@/data/charities";
 import { CAPTAIN } from "@/data/execs";
 import { CHARITY_PHOTOS, COMPETITION_PHOTOS } from "@/data/gallery";
-import { APPLY_FORM_URL, APPLICATION_DEADLINE, CORPORATE_EMAIL, INSTAGRAM_URL } from "@/data/links";
+import {
+  APPLY_FORM_URL,
+  APPLICATION_DEADLINE,
+  CORPORATE_EMAIL,
+  INSTAGRAM_URL,
+  YOUTUBE_URL,
+  LINKEDIN_URL,
+  WINNIE_TALKS_URL,
+} from "@/data/links";
 
 export default function Home() {
   return (
@@ -48,9 +56,9 @@ export default function Home() {
 
             <div className="grid grid-cols-3 gap-4 content-start">
               {[
-                { n: 14, label: "categories" },
-                { n: 12, label: "execs" },
-                { n: 6, label: "charity partners" },
+                { n: 46, label: "delegates" },
+                { n: 3, label: "days" },
+                { n: 1, label: "team" },
               ].map((s) => (
                 <div key={s.label} className="sticker text-center !px-2" data-sticker="">
                   <p className="display-name display-section">
@@ -101,9 +109,9 @@ export default function Home() {
                   <StarDoodle size={40} />
                 </span>
                 <p className="eyebrow">The competition</p>
-                <h3 className="sans-heading !text-[1.35rem]">14 ways to win</h3>
+                <h3 className="sans-heading !text-[1.35rem]">4 categories</h3>
                 <p className="text-sm">
-                  Four headline events and ten academic cases — find the one
+                  Academics, athletics, challenge, and debate — find the one
                   with your name on it.
                 </p>
                 <Link className="btn btn--purple !py-2 !text-[0.8rem] mt-auto" href="/teams">
@@ -152,14 +160,14 @@ export default function Home() {
             What we compete in
           </p>
           <h2 id="categories" className="torn mt-3" data-stamp="">
-            14 ways to win
+            4 categories
           </h2>
 
-          <div className="mt-8 grid gap-8 md:grid-cols-2">
+          <div className="mt-8 grid gap-8 md:grid-cols-2 relative">
+            <StarDoodle className="-top-8 right-0 hidden md:block" size={54} data-doodle="" />
             <div className="sticker" data-sticker="">
-              <h3 className="sans-heading">The main 4</h3>
               <ul className="mt-3 grid gap-2 list-none p-0">
-                {MAIN_FOUR.map((c) => (
+                {CATEGORIES.map((c) => (
                   <li key={c.name}>
                     <span className="font-extrabold">{c.name}</span>{" "}
                     <span className="hand text-lg" style={{ color: "var(--purple-deep)" }}>
@@ -171,19 +179,9 @@ export default function Home() {
             </div>
 
             <div className="relative">
-              <StarDoodle className="-top-8 right-0" size={54} data-doodle="" />
-              <h3 className="sans-heading" data-paste="">
-                10 academic cases
-              </h3>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {ACADEMICS.map((c) => (
-                  <span key={c} className="chip" data-paste="">
-                    {c}
-                  </span>
-                ))}
-              </div>
-              <p className="hand text-lg mt-4" style={{ color: "var(--purple-deep)" }}>
-                (final 26/27 lineup confirmed closer to competition)
+              <p className="max-w-[46ch]">
+                Academics, athletics, challenge, and debate — every one of them
+                counts toward School of the Year.
               </p>
               <Link href="/teams" className="btn btn--purple mt-5">
                 See all categories
@@ -203,8 +201,8 @@ export default function Home() {
               </h2>
               <p className="mt-4 max-w-[52ch] opacity-95" data-paste="">
                 One application. Eight months of training, fundraisers, and practices.
-                One weekend you’ll still be talking about at graduation. Any UWinnipeg
-                student can apply — no case experience needed.
+                One weekend you’ll still be talking about at graduation. Open to
+                Business and Economics students — no case experience needed.
               </p>
               <a className="btn btn--gold mt-6" href={APPLY_FORM_URL} target="_blank" rel="noopener" data-paste="">
                 Apply to JDC West
@@ -244,8 +242,7 @@ export default function Home() {
               <HeartDoodle className="-top-6 right-8" size={52} data-doodle="" />
               <p className="max-w-[50ch]">
                 Charity is a scored part of JDC West — and the part we’re proudest of.
-                This year Team Winnie is partnering with six local organizations,
-                starting with <strong>Manitoba Harvest</strong>.
+                This year Team Winnie is partnering with six local organizations.
               </p>
               <Link href="/charity" className="btn btn--purple mt-6">
                 Meet our partners
@@ -299,6 +296,44 @@ export default function Home() {
             <Link href="/execs" className="btn btn--purple mt-5">
               Meet the execs
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- Team spirit: chant + Winnie Talks ---------- */}
+      <section className="section" aria-labelledby="spirit">
+        <div className="wrap grid gap-10 md:grid-cols-2 items-start">
+          <div className="relative">
+            <HeartDoodle className="-top-8 left-4" size={44} data-doodle="" />
+            <p className="eyebrow" data-paste="">
+              Say it loud
+            </p>
+            <h2 id="spirit" className="torn mt-3" data-stamp="">
+              Our chant
+            </h2>
+            <div className="mt-6 sticker max-w-[48ch]" data-sticker="">
+              {/* TODO: real chant lyrics from the team — placeholder until confirmed */}
+              <p className="hand text-2xl" style={{ color: "var(--purple-deep)" }}>
+                chant lyrics coming soon — ask any delegate to hear it live
+              </p>
+            </div>
+          </div>
+
+          <div className="relative">
+            <StarDoodle className="-top-8 right-4" size={44} data-doodle="" />
+            <p className="eyebrow" data-paste="">
+              Watch the team talk
+            </p>
+            <h2 className="torn mt-3" data-stamp="">
+              Winnie Talks
+            </h2>
+            <p className="mt-6 max-w-[48ch]">
+              Our team's own video series — delegates and execs talking about JDC
+              West in their own words.
+            </p>
+            <a className="btn btn--purple mt-5" href={WINNIE_TALKS_URL} target="_blank" rel="noopener">
+              Watch Winnie Talks
+            </a>
           </div>
         </div>
       </section>
@@ -386,6 +421,17 @@ export default function Home() {
               <a className="btn btn--purple mt-4" href={INSTAGRAM_URL}>
                 DM us on Instagram
               </a>
+              <p className="mt-3 text-sm">
+                Also on{" "}
+                <a href={YOUTUBE_URL} className="hover:underline">
+                  YouTube
+                </a>{" "}
+                and{" "}
+                <a href={LINKEDIN_URL} className="hover:underline">
+                  LinkedIn
+                </a>
+                .
+              </p>
             </div>
             <div className="sticker relative" data-sticker="">
               <SunDoodle className="-top-9 -right-6" size={56} data-doodle="" />

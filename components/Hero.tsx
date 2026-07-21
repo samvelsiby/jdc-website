@@ -80,8 +80,8 @@ export default function Hero() {
 
           <p className="hero-sub mt-5 max-w-[44ch]">
             Western Canada’s biggest business school competition, and the UWinnipeg
-            delegation that’s going to it. Fourteen categories, one team, one January
-            weekend you’ll never shut up about.
+            delegation that’s going to it. Forty-six delegates, one team, three January
+            days you’ll never forget.
           </p>
 
           {/* CTA — outside the timeline, clickable at frame one */}

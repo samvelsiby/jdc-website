@@ -291,12 +291,12 @@ Traffic arrives from the Instagram link in bio, so most visitors are on a phone 
 
 ### The profile card is the exec roster
 
-§5's profile card (pill → name → degree → polaroid → quote) is the repeating unit for the 12 execs on `/execs`. Notes:
+§5's profile card (pill → name → degree → polaroid → sticker blurb) is the repeating unit for the 12 execs on `/execs`. Notes:
 
 - **Thiksha Sathish Kumar (Captain) is the feature**, not card one. She gets scale the others don't.
 - **Co-VP Marketing is two people, one role.** Arun Muthu and Raezel Florence Balino share the pill. Render as one entry with two names so it reads as intentional.
 - **The pinned team carousel (§6.4) is desktop-only** per §6.6, so mobile gets 12 stacked cards. That's a long scroll — worth checking that it still reads.
-- Each card needs a photo, a degree, and a quote from 12 people. That's a **content dependency**, not a design one.
+- Each card needs a photo, a degree, and a short **role description** (what the role does, not a personal quote) from 12 people.
 
 ### Sponsor logos are the open problem
 

@@ -2,7 +2,7 @@ import Polaroid from "@/components/Polaroid";
 import { Exec, initials } from "@/data/execs";
 
 /**
- * Profile card per DESIGN.md §5: pill → display name → degree → polaroid → sticker quote.
+ * Profile card per DESIGN.md §5: pill → display name → degree → polaroid → sticker blurb.
  * Co-VP roles render both names in one card so the shared role reads as intentional.
  */
 export default function ExecCard({ exec, index = 0 }: { exec: Exec; index?: number }) {
@@ -41,7 +41,7 @@ export default function ExecCard({ exec, index = 0 }: { exec: Exec; index?: numb
       </Polaroid>
 
       <blockquote className="sticker max-w-[300px]" data-sticker="">
-        <p className="hand">“{exec.quote}”</p>
+        <p className="hand">{exec.blurb}</p>
       </blockquote>
     </article>
   );

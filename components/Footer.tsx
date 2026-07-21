@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CORPORATE_EMAIL, INSTAGRAM_URL } from "@/data/links";
+import { CORPORATE_EMAIL, INSTAGRAM_URL, YOUTUBE_URL, LINKEDIN_URL } from "@/data/links";
 
 export default function Footer() {
   return (
@@ -23,6 +23,8 @@ export default function Footer() {
         <div className="grid gap-2 content-start">
           <p className="eyebrow !text-[var(--yellow)]">Say hi</p>
           <a href={INSTAGRAM_URL} className="hover:underline">Instagram (handle coming soon)</a>
+          <a href={YOUTUBE_URL} className="hover:underline">YouTube (link coming soon)</a>
+          <a href={LINKEDIN_URL} className="hover:underline">LinkedIn (link coming soon)</a>
           <a href={`mailto:${CORPORATE_EMAIL}`} className="hover:underline">{CORPORATE_EMAIL}</a>
         </div>
       </div>

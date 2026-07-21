@@ -1,11 +1,10 @@
-// All 6 partners are signed (per README) — only Manitoba Harvest is named so far.
-// TODO: fill in the other five as they're announced.
+// All 6 charity partners for 26/27, confirmed by the team.
 
 export const CHARITIES: { name: string; announced: boolean }[] = [
-  { name: "Manitoba Harvest", announced: true },
-  { name: "Partner #2", announced: false },
-  { name: "Partner #3", announced: false },
-  { name: "Partner #4", announced: false },
-  { name: "Partner #5", announced: false },
-  { name: "Partner #6", announced: false },
+  { name: "Agape Table", announced: true },
+  { name: "Darcy's ARC", announced: true },
+  { name: "The Salvation Army", announced: true },
+  { name: "Children's Hospital Foundation", announced: true },
+  { name: "Maddox Warriors", announced: true },
+  { name: "Winnipeg Goldeyes", announced: true },
 ];

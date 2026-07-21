@@ -125,10 +125,7 @@ The homepage is a single continuous flow, read top to bottom as one story:
 ## Page Details
 
 ### `/teams`
-14 competition categories in two groups:
-
-- **Main 4** — the non-academic competitions
-- **10 academics** — the academic case categories
+4 competition categories: **Academics, Athletics, Challenge, Debate.** Academics also lists the 10 business disciplines it spans (`ACADEMIC_DISCIPLINES` in `data/categories.ts`), shown as texture under the Academics category rather than as categories of their own.
 
 **Categories only — no delegate names.** The page explains what each competition *is*. This is a deliberate choice: it means the page doesn't go stale when delegates change, and it can ship before selection is finished. If names get added later, the category structure is already the right container for them.
 
@@ -179,7 +176,7 @@ Needs from VP Corporate Relations (Dev Jani): the sponsor list, the tier structu
 Serves two readers, **charities first**: lead with the partnership pitch and credibility, let the impact story support it. A charity evaluating the delegation should find what you run and who you've worked with before it finds anything else.
 
 - Charity partner overview
-- **All 6 charity partners are signed** — this is a fact, not a target. Only Manitoba Harvest is named so far; the other 5 names are still needed.
+- **All 6 charity partners are signed and named**: Agape Table, Darcy's ARC, The Salvation Army, Children's Hospital Foundation, Maddox Warriors, Winnipeg Goldeyes.
 - Event information
 - Charity sign-up — external Google Form
 - VP Charity: Vikramsinh Parmar
@@ -202,16 +199,18 @@ The real deadline is not the competition — it's the **delegate application dea
 ## Open Questions
 
 - **Sponsor list, tiers, contract terms, and logo files** — contractual, and the scrapbook system has no component for third-party logos. See the Sponsor Logos section and [DESIGN.md §9](DESIGN.md#9-applying-this-to-the-site).
-- **Profile card content for 12 execs** — the design's repeating unit needs a photo, a degree, and a quote from each person. Twelve quotes is a real collection job.
-- **The 14 category names** — the Main 4 and the 10 academic categories are still unnamed here. Blocks building `/teams`.
+- ~~Profile card content for 12 execs~~ — resolved: each card shows a short **role description** (what the role actually does) instead of a personal quote. See `data/execs.ts`.
+- ~~The category names~~ — resolved: JDC West is **4 categories** — Academics, Athletics, Challenge, Debate. The 10 business disciplines under Academics (`ACADEMIC_DISCIPLINES` in `data/categories.ts`) are still placeholder names pending confirmation.
 - ~~Application deadline date~~ — **August 1st**, now shown in the hero and apply section
 - Competition year and host school
 - Final Google Form URLs — delegate application and charity sign-up
-- **Names of the other 5 charity partners** — all 6 are signed, only Manitoba Harvest is named here
+- ~~Names of the other 5 charity partners~~ — resolved: all 6 named in `data/charities.ts` (Agape Table, Darcy's ARC, The Salvation Army, Children's Hospital Foundation, Maddox Warriors, Winnipeg Goldeyes).
 - **Gallery photos** — the pitch depends on these, so they're a real dependency, not a nice-to-have. Committed to the repo, so someone has to gather and hand them over.
 - What "Godparent" means to an outside visitor
-- Contact email destination — corporate relations (Dev Jani's portfolio) was mentioned as the inbox for sponsor/coach inquiries
-- Instagram handle and any other socials (the site's main traffic source, so the link back matters)
+- ~~Contact email destination~~ — resolved: `uwjdcwest@gmail.com` is the one inbox for every contact path (sponsorship, coaches, general inquiries).
+- **Instagram, YouTube, and LinkedIn URLs** — still placeholders (`#`) in `data/links.ts`; the site links out to all three now, just needs the real handles.
+- **Chant lyrics** — a chant section now exists on the homepage but the actual words are still a placeholder pending the real copy.
+- **Winnie Talks link** — the homepage references the team's Winnie Talks video series; needs a real URL in `data/links.ts` (`WINNIE_TALKS_URL`).
 - Whether the #2 Teams banner survives — see the concern in the homepage flow above
 - Headshots and bio copy for the exec roster — only the Captain strictly needs a bio, but the table likely wants photos
 - Whether execs have public-facing contact info (LinkedIn, email) in the table, or whether all contact funnels through one inbox

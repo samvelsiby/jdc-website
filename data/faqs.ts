@@ -5,7 +5,7 @@ export const FAQS = [
   },
   {
     q: "Who can apply?",
-    a: "Any University of Winnipeg student. You don’t need to be in your final year, and you don’t need to have competed before — the team is built from people who want to be there.",
+    a: "Business and Economics students at the University of Winnipeg. If you're not in one of those programs but plan on taking three business classes during the fall term before competition, you're eligible too. You don’t need to be in your final year, and you don’t need to have competed before — the team is built from people who want to be there.",
   },
   {
     q: "Do I need case competition experience?",
