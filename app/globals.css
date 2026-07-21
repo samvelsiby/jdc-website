@@ -702,6 +702,13 @@ main {
   will-change: transform;
 }
 
+/* The hero's team photo is landscape (the whole delegation, one frame) —
+   wider and shorter than the default portrait cutout. */
+.cutout--wide {
+  width: min(78vw, 46svh, 460px);
+  aspect-ratio: 4 / 3;
+}
+
 .hero-wings {
   position: absolute;
   left: 50%;

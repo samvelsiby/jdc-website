@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Fx from "@/components/Fx";
 import Starburst from "@/components/Starburst";
 import Polaroid from "@/components/Polaroid";
@@ -70,17 +71,16 @@ export default function CharityPage() {
             {CHARITIES.map((c, i) => (
               <div
                 key={c.name}
-                className={`sticker relative grid place-items-center min-h-[130px] text-center rot-${(["a", "b", "c"] as const)[i % 3]}`}
+                className={`sticker relative grid place-items-center gap-3 min-h-[130px] text-center rot-${(["a", "b", "c"] as const)[i % 3]}`}
                 data-sticker=""
               >
                 <span className="tape tape--top" />
-                {c.announced ? (
-                  <span className="display-name display-section !text-[1.6rem]">{c.name}</span>
-                ) : (
-                  <span className="hand text-2xl" style={{ color: "var(--purple-deep)" }}>
-                    announcing soon…
-                  </span>
-                )}
+                <div className="relative w-full h-[70px]">
+                  <Image src={c.logo} alt={c.name} fill sizes="200px" style={{ objectFit: "contain" }} />
+                </div>
+                <span className="hand text-lg" style={{ color: "var(--purple-deep)" }}>
+                  {c.name}
+                </span>
               </div>
             ))}
           </div>

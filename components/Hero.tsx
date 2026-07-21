@@ -6,7 +6,7 @@ import { useGSAP } from "@gsap/react";
 import Image from "next/image";
 import { ButterflyDoodle, StarDoodle, HeartDoodle, SquiggleDoodle } from "@/components/Doodles";
 import { APPLY_FORM_URL, APPLICATION_DEADLINE } from "@/data/links";
-import { COMPETITION_PHOTOS } from "@/data/gallery";
+import { HERO_TEAM_PHOTO } from "@/data/gallery";
 
 gsap.registerPlugin(useGSAP);
 
@@ -104,12 +104,12 @@ export default function Hero() {
         <div className="hero-collage" aria-hidden="true">
           <ButterflyDoodle className="hero-wings" size={Math.min(460, 460)} data-drift="14" />
 
-          <div className="cutout hero-photo" data-drift="8">
+          <div className="cutout cutout--wide hero-photo" data-drift="8">
             <Image
-              src={COMPETITION_PHOTOS[2].src}
-              alt="Team Winnie at JDC West"
+              src={HERO_TEAM_PHOTO.src}
+              alt={HERO_TEAM_PHOTO.alt}
               fill
-              sizes="(min-width: 768px) 30vw, 60vw"
+              sizes="(min-width: 768px) 46vw, 78vw"
               style={{ objectFit: "cover" }}
               priority
             />

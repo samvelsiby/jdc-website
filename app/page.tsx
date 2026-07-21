@@ -1,15 +1,16 @@
 import Link from "next/link";
+import Image from "next/image";
 import Fx from "@/components/Fx";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import Polaroid from "@/components/Polaroid";
 import Starburst from "@/components/Starburst";
 import FaqStack from "@/components/FaqStack";
+import ScatteredGallery from "@/components/ScatteredGallery";
 import { SunDoodle, HeartDoodle, StarDoodle, SmileyDoodle, ArrowDoodle, CurlyArrowDoodle } from "@/components/Doodles";
 import { CATEGORIES } from "@/data/categories";
 import { CHARITIES } from "@/data/charities";
 import { CAPTAIN } from "@/data/execs";
-import { CHARITY_PHOTOS, COMPETITION_PHOTOS } from "@/data/gallery";
 import {
   APPLY_FORM_URL,
   APPLICATION_DEADLINE,
@@ -252,13 +253,9 @@ export default function Home() {
             <div className="grid grid-cols-3 gap-3">
               {CHARITIES.map((c, i) => (
                 <div key={c.name} className={`sticker !p-3 text-center grid place-items-center min-h-[84px] rot-${(["a", "b", "c"] as const)[i % 3]}`} data-sticker="">
-                  {c.announced ? (
-                    <span className="font-extrabold text-sm leading-tight">{c.name}</span>
-                  ) : (
-                    <span className="hand text-lg" style={{ color: "var(--purple-deep)" }}>
-                      announcing soon…
-                    </span>
-                  )}
+                  <div className="relative w-full h-[52px]">
+                    <Image src={c.logo} alt={c.name} fill sizes="120px" style={{ objectFit: "contain" }} />
+                  </div>
                 </div>
               ))}
             </div>
@@ -348,29 +345,11 @@ export default function Home() {
             Photo gallery
           </h2>
           <p className="hand text-2xl mt-4" style={{ color: "var(--purple-deep)" }} data-paste="">
-            the scrapbook fills up as the year happens — this is just the start
+            the scrapbook fills up as the year happens — keep scrolling
           </p>
 
-          <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12">
-            {[
-              { c: "on the competition floor", src: COMPETITION_PHOTOS[0].src },
-              { c: "charity cricket tournament", src: CHARITY_PHOTOS[0].src },
-              { c: "game day energy", src: COMPETITION_PHOTOS[3].src },
-              { c: "for a good cause", src: CHARITY_PHOTOS[5].src },
-              { c: "JDC West 26/27", src: COMPETITION_PHOTOS[5].src },
-              { c: "team spirit, on and off the field", src: CHARITY_PHOTOS[10].src },
-            ].map((p, i) => (
-              <Polaroid
-                key={p.c}
-                caption={p.c}
-                rotate={(["a", "b", "c"] as const)[i % 3]}
-                tape={i % 2 ? "corners" : "top"}
-                variant={(["purple", "sunset", "paper"] as const)[i % 3]}
-                src={p.src}
-                alt={p.c}
-                data-polaroid=""
-              />
-            ))}
+          <div className="mt-10">
+            <ScatteredGallery />
           </div>
         </div>
       </section>
