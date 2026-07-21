@@ -18,8 +18,9 @@ const DRIFT = [0, 34, 14, 46, 6, 28];
 /**
  * The photo wall as a loose, pasted-in collage rather than a fixed 6-photo
  * grid: up to 20 curated shots, tossed into a masonry layout so heights
- * vary card to card, each one pasting itself in only once it's scrolled
- * into view — so the wall visibly fills in as you scroll, not all at once.
+ * vary card to card. Each one is physically stuck to the board as it
+ * scrolls into view: it drops in at an angle, presses flat with a little
+ * squash, then the tape snaps down over it — not just a generic fade/slide.
  */
 export default function ScatteredGallery() {
   const scope = useRef<HTMLDivElement>(null);
@@ -32,15 +33,26 @@ export default function ScatteredGallery() {
         const cards = gsap.utils.toArray<HTMLElement>(".gallery-card", scope.current ?? undefined);
         cards.forEach((card, i) => {
           const dir = i % 2 ? 1 : -1;
-          gsap.from(card, {
-            scrollTrigger: { trigger: card, start: "top 90%", once: true },
-            y: 70,
-            opacity: 0,
-            scale: 0.85,
-            rotation: `+=${dir * 9}`,
-            duration: 0.65,
-            ease: "back.out(1.5)",
+          const tape = card.querySelectorAll(".tape");
+          gsap.set(tape, { scale: 0, opacity: 0 });
+
+          const tl = gsap.timeline({
+            scrollTrigger: { trigger: card, start: "top 88%", once: true },
           });
+
+          tl.from(card, {
+            y: -60,
+            opacity: 0,
+            rotation: dir * 16,
+            scale: 1.1,
+            duration: 0.4,
+            ease: "power2.in",
+          })
+            // the press — flattens onto the board
+            .to(card, { scaleY: 0.92, scaleX: 1.05, duration: 0.09, ease: "power1.in" })
+            .to(card, { scaleY: 1, scaleX: 1, duration: 0.3, ease: "back.out(3)" })
+            // tape snaps down over it, right as it settles
+            .to(tape, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.5)", stagger: 0.06 }, "-=0.2");
         });
       });
     },
@@ -63,7 +75,6 @@ export default function ScatteredGallery() {
             className="w-full"
             src={p.src}
             alt={p.caption}
-            data-polaroid=""
           />
         </div>
       ))}
