@@ -15,7 +15,9 @@ import {
   APPLY_FORM_URL,
   APPLICATION_DEADLINE,
   CORPORATE_EMAIL,
+  INSTAGRAM_URL,
   LINKEDIN_URL,
+  YOUTUBE_URL,
   WINNIE_TALKS_URL,
 } from "@/data/links";
 
@@ -392,12 +394,23 @@ export default function Home() {
             <div className="sticker" data-sticker="">
               <h3 className="sans-heading">Students</h3>
               <p className="mt-2">
-                Thinking about applying? Questions about the team? Follow us
-                or send a message — we actually answer.
+                Thinking about applying? Questions about the team? DM us — we
+                actually answer.
               </p>
-              <a className="btn btn--purple mt-4" href={LINKEDIN_URL} target="_blank" rel="noopener">
-                Follow us on LinkedIn
+              <a className="btn btn--purple mt-4" href={INSTAGRAM_URL} target="_blank" rel="noopener">
+                DM us on Instagram
               </a>
+              <p className="mt-3 text-sm">
+                Also on{" "}
+                <a href={YOUTUBE_URL} target="_blank" rel="noopener" className="hover:underline">
+                  YouTube
+                </a>{" "}
+                and{" "}
+                <a href={LINKEDIN_URL} target="_blank" rel="noopener" className="hover:underline">
+                  LinkedIn
+                </a>
+                .
+              </p>
             </div>
             <div className="sticker relative" data-sticker="">
               <SunDoodle className="-top-9 -right-6" size={56} data-doodle="" />

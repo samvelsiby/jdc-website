@@ -208,7 +208,7 @@ The real deadline is not the competition — it's the **delegate application dea
 - **Gallery photos** — the pitch depends on these, so they're a real dependency, not a nice-to-have. Committed to the repo, so someone has to gather and hand them over.
 - What "Godparent" means to an outside visitor
 - ~~Contact email destination~~ — resolved: `uwjdcwest@gmail.com` is the one inbox for every contact path (sponsorship, coaches, general inquiries).
-- ~~Socials~~ — resolved: the team decided to link out to **LinkedIn only** (`LINKEDIN_URL` in `data/links.ts`, linkedin.com/company/university-of-winnipeg-jdc-west). Instagram and YouTube URLs were provided too but deliberately left off the public-facing links per the team's call — worth revisiting if that changes.
+- ~~Socials~~ — resolved: the site links out to **Instagram, YouTube, and LinkedIn** (`INSTAGRAM_URL`, `YOUTUBE_URL`, `LINKEDIN_URL` in `data/links.ts`). Instagram is the primary CTA in Contact Us per the traffic-source note above.
 - **Chant lyrics** — a chant section now exists on the homepage but the actual words are still a placeholder pending the real copy.
 - **Winnie Talks link** — the homepage references the team's Winnie Talks video series; needs a real URL in `data/links.ts` (`WINNIE_TALKS_URL`).
 - Whether the #2 Teams banner survives — see the concern in the homepage flow above
