@@ -56,7 +56,9 @@ export default function ExecShowcase() {
             .toArray<HTMLElement>(`.show-initial[data-group="${g}"]`, sec)
             .sort((a, b) => Number(a.dataset.slot) - Number(b.dataset.slot));
 
-        gsap.set(members, { yPercent: 125 });
+        // A partial offset (not 125%) so the dashed slots already peek into
+        // the resting frame — an empty box read as broken, not "scroll me".
+        gsap.set(members, { yPercent: 22 });
         gsap.set(gsap.utils.toArray(".show-initial", sec), { scale: 0 });
         gsap.set(gsap.utils.toArray(".show-pcard", sec), { x: off(), rotation: 20, scale: 0.75 });
 

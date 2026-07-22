@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Fx from "@/components/Fx";
 import ExecShowcase from "@/components/ExecShowcase";
-import { HeartDoodle, ArrowDoodle, StarDoodle } from "@/components/Doodles";
+import { HeartDoodle, ArrowDoodle, StarDoodle, SmileyDoodle } from "@/components/Doodles";
 import { HEADCOUNT } from "@/data/execs";
 
 export const metadata: Metadata = {
@@ -15,9 +15,10 @@ export default function ExecsPage() {
       <Fx />
 
       {/* Intro — gives the showcase entrance room to play */}
-      <section className="relative grid place-items-center min-h-[62svh] text-center px-6">
-        <div>
-          <StarDoodle className="-top-2 left-[14%]" size={50} data-doodle="" />
+      <section className="relative grid place-items-center min-h-[42svh] text-center px-6">
+        <div className="relative">
+          <StarDoodle className="-top-2 -left-10" size={50} data-doodle="" />
+          <SmileyDoodle className="top-2 -right-12" size={46} data-doodle="" />
           <p className="eyebrow" data-paste="">
             Meet the execs
           </p>
@@ -25,8 +26,11 @@ export default function ExecsPage() {
             the faces behind the polaroids
           </h1>
           <p className="hand text-2xl mt-6" style={{ color: "var(--purple-deep)" }} data-paste="">
-            all {HEADCOUNT} of us, one at a time — keep scrolling ↓
+            all {HEADCOUNT} of us, one at a time — keep scrolling
           </p>
+          <span className="scroll-cue" aria-hidden="true">
+            ↓
+          </span>
         </div>
       </section>
 
