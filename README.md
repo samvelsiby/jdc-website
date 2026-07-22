@@ -203,12 +203,12 @@ The real deadline is not the competition — it's the **delegate application dea
 - ~~The category names~~ — resolved: JDC West is **4 categories** — Academics, Athletics, Challenge, Debate. The 10 business disciplines under Academics (`ACADEMIC_DISCIPLINES` in `data/categories.ts`) are still placeholder names pending confirmation.
 - ~~Application deadline date~~ — **August 1st**, now shown in the hero and apply section
 - Competition year and host school
-- Final Google Form URLs — delegate application and charity sign-up
+- ~~Final Google Form URLs~~ — resolved for the **delegate application** (`APPLY_FORM_URL`, https://forms.gle/bn2e5TZvma5Dap6a9). **Charity sign-up form is still a placeholder** (`CHARITY_FORM_URL` in `data/links.ts`).
 - ~~Names of the other 5 charity partners~~ — resolved: all 6 named in `data/charities.ts` (Agape Table, Darcy's ARC, The Salvation Army, Children's Hospital Foundation, Maddox Warriors, Winnipeg Goldeyes).
 - **Gallery photos** — the pitch depends on these, so they're a real dependency, not a nice-to-have. Committed to the repo, so someone has to gather and hand them over.
 - What "Godparent" means to an outside visitor
 - ~~Contact email destination~~ — resolved: `uwjdcwest@gmail.com` is the one inbox for every contact path (sponsorship, coaches, general inquiries).
-- **Instagram, YouTube, and LinkedIn URLs** — still placeholders (`#`) in `data/links.ts`; the site links out to all three now, just needs the real handles.
+- ~~Socials~~ — resolved: the team decided to link out to **LinkedIn only** (`LINKEDIN_URL` in `data/links.ts`, linkedin.com/company/university-of-winnipeg-jdc-west). Instagram and YouTube URLs were provided too but deliberately left off the public-facing links per the team's call — worth revisiting if that changes.
 - **Chant lyrics** — a chant section now exists on the homepage but the actual words are still a placeholder pending the real copy.
 - **Winnie Talks link** — the homepage references the team's Winnie Talks video series; needs a real URL in `data/links.ts` (`WINNIE_TALKS_URL`).
 - Whether the #2 Teams banner survives — see the concern in the homepage flow above
