@@ -29,7 +29,7 @@ export default function Home() {
       <Marquee />
 
       {/* ---------- About ---------- */}
-      <section className="section" aria-labelledby="about">
+      <section className="section tx-halftone" aria-labelledby="about">
         <div className="wrap">
           <p className="eyebrow" data-paste="">
             Who we are
@@ -37,7 +37,9 @@ export default function Home() {
           <h2 id="about" className="torn mt-3" data-stamp="">
             About us
           </h2>
-          <div className="mt-8 grid gap-10 md:grid-cols-[1.1fr_.9fr] items-start">
+          <div className="relative mt-8 grid gap-10 md:grid-cols-[1.1fr_.9fr] items-start">
+            <StarDoodle className="top-[42%] right-[4%] hidden md:block" size={44} data-doodle="" />
+            <HeartDoodle className="bottom-2 right-[20%] hidden md:block" size={38} data-doodle="" />
             <div className="grid gap-4 max-w-[58ch]">
               <p>
                 Team Winnie is the University of Winnipeg’s delegation to JDC West — a
